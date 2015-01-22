@@ -1,7 +1,5 @@
 package time;
 
-import java.sql.Time;
-
 public class TimeRange
 {
 	public Time start, stop;
