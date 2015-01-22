@@ -9,9 +9,12 @@ public class Class
 	private String location;
 	private WeekTimes week;
 	
-	public Class()
+	public Class(String name, String prof, String location)
 	{
-		//TODO
+		setName(name);
+		setProf(prof);
+		setLocation(location);
+		week = new WeekTimes();
 	}
 	
 	public void setName(String name)
@@ -33,5 +36,6 @@ public class Class
 	{
 		//parse the week times string
 		//TODO
+		
 	}
 }

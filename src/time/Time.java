@@ -4,6 +4,25 @@ public class Time
 {
 	public int seconds;
 	
+	//ex. valid string "5:15PM"
+	public Time(String str, boolean b)
+	{
+		String[] timeArr = str.split(":");
+		if(timeArr.length <= 1)
+			throw new IllegalArgumentException();
+		
+		String hourStr = timeArr[0];
+		String minStr = timeArr[1].substring(0, 2);
+		boolean isPM = timeArr[1].charAt(timeArr[1].length()-2) == 'P';
+		
+		int hours = Integer.parseInt(hourStr);
+		int mins = Integer.parseInt(minStr);
+		if(isPM)
+			hours += 12;
+		
+		this.seconds = toSeconds(hours, mins, 0);
+	}
+	
 	//ex. valid strings "13:57" or "23:58:56"
 	public Time(String str)
 	{
@@ -53,9 +72,14 @@ public class Time
 		return seconds % 60;
 	}
 	
-	public int getDuration()
+	public int getTotalSeconds()
 	{
 		return seconds;
+	}
+	
+	public int getTimeBetween(Time t)
+	{
+		return Math.abs(this.getTotalSeconds()-t.getTotalSeconds());
 	}
 	
 	public String toString()
@@ -76,11 +100,5 @@ public class Time
 			secStr = "0"+secStr;
 		
 		return hourStr+":"+minStr+":"+secStr;
-	}
-	
-	public static void main(String[] args)
-	{
-		Time t = new Time("23:56:45");
-		System.out.println(t.toString());
 	}
 }

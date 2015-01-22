@@ -10,8 +10,23 @@ public class TimeRange
 		this.stop = stop;
 	}
 	
-	public TimeRange(String start, String stop)
+	public TimeRange(String startStr, String stopStr)
 	{
-		//TODO
+		this.start = new Time(startStr);
+		this.stop = new Time(stopStr);
+	}
+	
+	//ex. valid strings "13:57 - 14:00"
+	public TimeRange(String timeRangeStr)
+	{
+		String[] timeRangeArr = timeRangeStr.split("-");
+		
+		start = new Time(timeRangeArr[0].trim());
+		stop = new Time(timeRangeArr[1].trim());
+	}
+	
+	public int getDuration()
+	{
+		return start.getTimeBetween(stop);
 	}
 }
