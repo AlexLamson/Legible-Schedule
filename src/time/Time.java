@@ -40,19 +40,16 @@ public class Time
 	
 	public int getHours()
 	{
-		//TODO
-		return 0;
+		return seconds /60 / 60 % 60;
 	}
 	
 	public int getMinutes()
 	{
-		//TODO
-		return 0;
+		return seconds / 60 % 60;
 	}
 	
 	public int getSeconds()
 	{
-		//TODO check if works
 		return seconds % 60;
 	}
 	
@@ -63,12 +60,27 @@ public class Time
 	
 	public String toString()
 	{
-		return getHours()+":"+getMinutes()+":"+getSeconds();
+		int hours = getHours();
+		String hourStr = hours+"";
+		if(hours < 10)
+			hourStr = "0"+hourStr;
+		
+		int mins = getMinutes();
+		String minStr = mins+"";
+		if(mins < 10)
+			minStr = "0"+minStr;
+		
+		int secs = getSeconds();
+		String secStr = secs+"";
+		if(secs < 10)
+			secStr = "0"+secStr;
+		
+		return hourStr+":"+minStr+":"+secStr;
 	}
 	
 	public static void main(String[] args)
 	{
-		Time t = new Time("23:50:45");
+		Time t = new Time("23:56:45");
 		System.out.println(t.toString());
 	}
 }
