@@ -32,10 +32,21 @@ public class Class
 		this.location = location;
 	}
 	
+	public int getRoomNumber(String str)
+	{
+		String numStr = "";
+		for(int i = str.length()-1; i > 0; i--)
+		{
+			if(Character.isDigit(str.charAt(i)))
+				numStr = str.charAt(i) + numStr;
+			else
+				break;
+		}
+		return Integer.parseInt(numStr);
+	}
+	
 	public void addTimes(String weekTimes)
 	{
-		//parse the week times string
-		//TODO
-		
+		//TODO parse the week times string
 	}
 }
