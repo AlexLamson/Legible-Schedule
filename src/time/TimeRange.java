@@ -29,4 +29,9 @@ public class TimeRange
 	{
 		return start.getTimeBetween(stop);
 	}
+	
+	public double getPercentageOfDay()
+	{
+		return 1.0*getDuration()/(24*60*60);
+	}
 }
