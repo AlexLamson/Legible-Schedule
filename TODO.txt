@@ -1,5 +1,0 @@
-To Do
-=====
-
-* add description to each class
-* get Time class working
