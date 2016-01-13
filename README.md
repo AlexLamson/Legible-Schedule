@@ -12,3 +12,7 @@ Usage
 5. Paste the contents into standard input
 6. Press enter 3 times
 7. The schedule image is located in the "res" directory (should be same directory as program)
+
+Screenshot
+----------
+!["Screenshot"](/screenshots/schedule.png "Screenshot")
